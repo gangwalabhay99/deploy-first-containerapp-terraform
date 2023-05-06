@@ -4,8 +4,8 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "deploy-first-containerapp-rg"
-    storage_account_name = "deployfirstcontainersa"
+    resource_group_name  = "deploy-first-containerapp-g"
+    storage_account_name = "deployfirstcontiners121"
     container_name       = "tfstate"
     key                  = "terraform-containerapp.tfstate"
   }
