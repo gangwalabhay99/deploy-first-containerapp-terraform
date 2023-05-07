@@ -1,10 +1,9 @@
-resource "azurerm_resource_group" "rg" {
+
+data "azurerm_resource_group" "rg" {
   name     = "AbhayGangwalRG"
   location = var.location
-  tags = {
-    Environment = var.environment
-  }
 }
+
 
 module "loganalytics" {
   source                       = "./modules/log-analytics"
@@ -12,7 +11,7 @@ module "loganalytics" {
   location                     = var.location
   log_analytics_workspace_sku  = "PerGB2018"
   environment                  = var.environment
-  resource_group_name          = azurerm_resource_group.rg.name
+  resource_group_name          = data.azurerm_resource_group.rg.name
 }
 
 module "acr" {
@@ -20,7 +19,7 @@ module "acr" {
   name                = "${var.app_name}acr"
   location            = var.location
   environment         = var.environment
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = data.azurerm_resource_group.rg.name
 }
 
 module "appinsights" {
@@ -29,5 +28,5 @@ module "appinsights" {
   location            = var.location
   environment         = var.environment
   application_type    = "web"
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = data.azurerm_resource_group.rg.name
 }
