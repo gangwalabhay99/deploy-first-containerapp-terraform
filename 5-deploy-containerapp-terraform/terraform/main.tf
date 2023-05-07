@@ -3,12 +3,12 @@ data "azurerm_resource_group" "rg" {
 }
 
 data "azurerm_log_analytics_workspace" "la" {
-  name                = "${var.app_name}la"
+  name                = "firstcontainerapp283la"
   resource_group_name = data.azurerm_resource_group.rg.name
 }
 
 data "azurerm_container_registry" "acr" {
-  name                = "${var.app_name}acracr"
+  name                = "firstcontainerapp283acracr"
   resource_group_name = data.azurerm_resource_group.rg.name
 }
 
