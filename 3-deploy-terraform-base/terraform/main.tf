@@ -1,7 +1,7 @@
 
 data "azurerm_resource_group" "rg" {
   name     = "AbhayGangwalRG"
-  location = var.location
+  location = "east us"
 }
 
 
