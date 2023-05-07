@@ -1,5 +1,5 @@
 data "azurerm_resource_group" "rg" {
-  name = "firstcontainerapp283-rg"
+  name = "${var.app_name}-rg"
 }
 
 data "azurerm_log_analytics_workspace" "la" {
