@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "${var.app_name}-rg"
+  name     = "AbhayGangwalRG"
   location = var.location
   tags = {
     Environment = var.environment
