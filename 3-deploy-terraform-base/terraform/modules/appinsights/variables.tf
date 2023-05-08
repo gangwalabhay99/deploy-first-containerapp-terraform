@@ -2,7 +2,7 @@ variable "name" {
 }
 
 variable "location" {
-  default = "uksouth"
+  default = "east us"
 }
 
 variable "application_type" {
