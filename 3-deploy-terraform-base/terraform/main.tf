@@ -1,12 +1,12 @@
 data "azurerm_resource_group" "rg" {
-name = "AbhayGangwalRG"
+  name = "AbhayGangwalRG"
 }
 
 
 module "loganalytics" {
 source                       = "./modules/log-analytics"
 log_analytics_workspace_name = "${var.app_name}la"
-location                     = var.location
+location                     = data.azurerm_resource_group.rg.location
 log_analytics_workspace_sku  = "PerGB2018"
 environment                  = var.environment
 resource_group_name          = data.azurerm_resource_group.rg.name
