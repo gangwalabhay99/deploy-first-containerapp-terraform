@@ -1,30 +1,30 @@
 data "azurerm_resource_group" "rg" {
-  name = "AbhayGangwalRG"
+    name = "AbhayGangwalRG"
 }
 
 
 module "loganalytics" {
-source                       = "./modules/log-analytics"
-log_analytics_workspace_name = "${var.app_name}la"
-location                     = data.azurerm_resource_group.rg.location
-log_analytics_workspace_sku  = "PerGB2018"
-environment                  = var.environment
-resource_group_name          = data.azurerm_resource_group.rg.name
+    source                       = "./modules/log-analytics"
+    log_analytics_workspace_name = "${var.app_name}la"
+    location                     = data.azurerm_resource_group.rg.location
+    log_analytics_workspace_sku  = "PerGB2018"
+    environment                  = var.environment
+    resource_group_name          = data.azurerm_resource_group.rg.name
 }
 
 module "acr" {
-source              = "./modules/acr"
-name                = "${var.app_name}acr"
-location            = var.location
-environment         = var.environment
-resource_group_name = data.azurerm_resource_group.rg.name
+    source              = "./modules/acr"
+    name                = "${var.app_name}acr"
+    location            = var.location
+    environment         = var.environment
+    resource_group_name = data.azurerm_resource_group.rg.name
 }
 
 module "appinsights" {
-source              = "./modules/appinsights"
-name                = "${var.app_name}insights"
-location            = var.location
-environment         = var.environment
-application_type    = "web"
-resource_group_name = data.azurerm_resource_group.rg.name
+    source              = "./modules/appinsights"
+    name                = "${var.app_name}insights"
+    location            = var.location
+    environment         = var.environment
+    application_type    = "web"
+    resource_group_name = data.azurerm_resource_group.rg.name
 }
