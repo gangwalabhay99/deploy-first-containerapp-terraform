@@ -1,5 +1,5 @@
 data "azurerm_resource_group" "keyvault" {
-  name = "AbhayGangwalRG"
+  name = "${var.name}-rg"
 }
 
 data "azurerm_client_config" "current" {}
